@@ -17,7 +17,7 @@ import utils.warning_ignore
 
 
 env_id = "CartPole-v1"
-num_cpu = 8
+num_cpu = 4
 ALGO = PPO2
 
 env = make_vec_env(env_id, n_envs=num_cpu, seed=0)
@@ -25,5 +25,8 @@ model = ALGO('MlpPolicy', env, verbose=0)
 start = time.time()
 model.learn(total_timesteps=1000)
 print(time.time()-start)
-
 env.close()
+
+eval_env = gym.make(env_id)
+mean_reward, std_reward = evaluate_policy(model, eval_env, n_eval_episodes=10)
+print(f'Mean reward: {mean_reward} +/- {std_reward:.2f}')
