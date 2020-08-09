@@ -1,2 +1,2 @@
-# baselines_study
+# Stable baselines
 Learn how to apply stable baselines
