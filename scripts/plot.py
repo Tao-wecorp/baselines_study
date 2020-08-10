@@ -10,7 +10,8 @@ from stable_baselines.common.vec_env import DummyVecEnv
 from stable_baselines import A2C, SAC, PPO2, TD3
 
 import utils.warning_ignore
-from utils import ProgressBarManager 
+from utils import ProgressBarManager
+from utils import PlottingCallback
 checkpoints_dir = "checkpoint"
 log_dir = "logs"
 
