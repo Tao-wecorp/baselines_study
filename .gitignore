@@ -132,4 +132,4 @@ dmypy.json
 *.zip
 *.mp4
 *.csv
-scripts/logs
+scripts/logs/
