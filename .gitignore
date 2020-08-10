@@ -131,3 +131,5 @@ dmypy.json
 # Checkpoints
 *.zip
 *.mp4
+*.csv
+scripts/logs
