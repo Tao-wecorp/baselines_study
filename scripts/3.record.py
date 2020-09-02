@@ -2,12 +2,10 @@
 
 import gym
 
-from stable_baselines.common.evaluation import evaluate_policy
-from stable_baselines.common.policies import MlpPolicy
-from stable_baselines.common.vec_env import DummyVecEnv, VecVideoRecorder
-from stable_baselines import PPO2
-
-import utils.warning_ignore
+from stable_baselines3.common.evaluation import evaluate_policy
+from stable_baselines3.ppo.policies import MlpPolicy
+from stable_baselines3.common.vec_env import DummyVecEnv, VecVideoRecorder
+from stable_baselines3 import PPO
 
 def record_video(env_id, model, video_length=500, prefix='', video_folder='videos/'):
     eval_env = DummyVecEnv([lambda: gym.make(env_id)])
@@ -25,11 +23,10 @@ def record_video(env_id, model, video_length=500, prefix='', video_folder='video
 env = gym.make('CartPole-v1')
 env = DummyVecEnv([lambda: env])
 
-model = PPO2(MlpPolicy, env, verbose=1)
+model = PPO(MlpPolicy, env, verbose=1)
 model.learn(total_timesteps=10000)
 
 mean_reward, std_reward = evaluate_policy(model, env, n_eval_episodes=100)
-
 print(f"mean_reward:{mean_reward:.2f} +/- {std_reward:.2f}")
 
 record_video('CartPole-v1', model, video_length=500, prefix='ppo2-cartpole')
