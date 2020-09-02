@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 from tqdm.auto import tqdm
-from stable_baselines.common.callbacks import BaseCallback
+from stable_baselines3.common.callbacks import BaseCallback
 
 
 class ProgressBarCallback(BaseCallback):
