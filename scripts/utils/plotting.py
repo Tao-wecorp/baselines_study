@@ -3,7 +3,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from stable_baselines3.common.callbacks import BaseCallback
-from stable_baselines3.results_plotter import load_results, ts2xy
+from stable_baselines3.common.results_plotter import load_results, ts2xy
 
 log_dir = "logs"
 
