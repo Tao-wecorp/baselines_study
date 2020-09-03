@@ -1,8 +1,7 @@
 #! /usr/bin/env python
 
-from stable_baselines import PPO2
+from stable_baselines3 import PPO2
 
-import utils.warning_ignore
 
 # For recurrent policies, with PPO2, the number of environments run in parallel
 # should be a multiple of nminibatches.
